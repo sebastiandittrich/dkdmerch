@@ -21,7 +21,7 @@
 
         <h2 class="font-bold text-3xl text-center">All Designs</h2>
 
-        <div class="flex flex-col items-stretch justify-start md:flex-row md:flex-wrap md:justify-center">
+        <div class="flex flex-col items-stretch justify-start md:flex-row md:flex-wrap md:justify-center md:items-center">
           <Item v-for="item of $store.state.items.list" :key="item.title" :item="item" class="mt-8 md:mx-4" />
         </div>
 
