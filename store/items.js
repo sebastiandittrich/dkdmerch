@@ -14,7 +14,7 @@ export const state = () => ({
       design: 'classic',
       since: '2019-11-09',
       store: 'amazon',
-      link: 'https://www.amazon.de/dp/B07ZD89TK4'
+      link: 'https://www.amazon.de/dp/B07Z9M7G55'
     },
     {
       type: 'Socks',
