@@ -6,6 +6,7 @@ export const state = () => ({
       design: 'classic',
       since: '2019-11-09',
       store: 'amazon',
+      style: 'dark',
       link: 'https://www.amazon.de/dp/B07ZD89TK4'
     },
     {
@@ -14,6 +15,7 @@ export const state = () => ({
       design: 'classic',
       since: '2019-11-09',
       store: 'amazon',
+      style: 'dark',
       link: 'https://www.amazon.de/dp/B07Z9M7G55'
     },
     {
@@ -22,6 +24,7 @@ export const state = () => ({
       design: 'classic',
       since: '2019-11-09',
       store: 'teespring',
+      style: 'dark',
       link: 'https://teespring.com/dkd-classic?tsmac=store&tsmic=dkd&pid=655&cid=102829'
     },
     {
@@ -30,6 +33,7 @@ export const state = () => ({
       design: 'classic',
       since: '2019-11-09',
       store: 'teespring',
+      style: 'dark',
       link: 'https://teespring.com/dkd-classic?tsmac=store&tsmic=dkd&pid=650'
     },
     {
@@ -38,6 +42,7 @@ export const state = () => ({
       design: 'classic',
       since: '2019-11-09',
       store: 'teespring',
+      style: 'light',
       link: 'https://teespring.com/dkd-classic?tsmac=store&tsmic=dkd&pid=794&cid=103544&sid=front'
     },
     {
@@ -46,6 +51,7 @@ export const state = () => ({
       design: 'classic',
       since: '2019-11-09',
       store: 'teespring',
+      style: 'dark',
       link: 'https://teespring.com/dkd-classic?tsmac=store&tsmic=dkd&pid=651&cid=102726&sid=front'
     },
   ],

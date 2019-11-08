@@ -12,6 +12,9 @@
         <div class="flex flex-row items-center justify-start bg-gray-200 text-xs uppercase tracking-wide text-grey-700 font-bold px-2 rounded">
           {{ item.type }}
         </div>
+        <div v-if="item.style" class="flex flex-row items-center justify-start text-xs uppercase tracking-wide font-bold px-2 rounded ml-2" :class="{ ['bg-black text-gray-200']: item.style == 'dark', ['bg-white border border-black text-black']: item.style == 'light' }">
+          {{ item.style }}
+        </div>
       </div>
       <h3 class="font-bold mt-4 text-xl">{{design.name}}</h3>
     </div>
