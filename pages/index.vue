@@ -11,32 +11,31 @@
   </div>
 
   <div>
-    <div class="sticky top-0 inset-y-0 p-6 z-0 blurry">
+    <div class="sticky top-0 inset-y-0 p-6">
       <div class="container mx-auto">
         <img src="/img/dkd-black.svg" alt="DKD Schriftzug" class="h-8 w-auto">
       </div>
     </div>
     <div class="p-8">
       <div class="container mx-auto">
-        <div v-for="design of inventory.designs" :key="design.name">
-          <h2 class="font-bold text-3xl">{{ design.title }}</h2>
-          <div class="flex flex-col items-stretch justify-start md:flex-row md:flex-wrap md:justify-center">
-            <div v-for="item of inventory.items.filter(item => item.design == design.name)" :key="item.title" class="bg-white rounded-lg shadow-lg overflow-hidden border mt-8 md:ml-8 flex flex-col items-stretch justify-start">
-              <img class="self-center h-64 p-4" :src="item.image" :alt="item.title">
-              <div class="p-8 pt-6 border-t">
-                <div class="flex flex-row items-center justify-start">
-                  <div v-if="item.new" class="flex flex-row items-center justify-start bg-green-200 text-xs uppercase tracking-wide text-green-900 font-bold px-2 rounded mr-2">
-                    New
-                  </div>
-                  <div class="flex flex-row items-center justify-start bg-gray-200 text-xs uppercase tracking-wide text-grey-700 font-bold px-2 rounded">
-                    {{ item.type }}
-                  </div>
-                </div>
-                <h3 class="font-bold mt-4 text-xl">{{design.title}}</h3>
-              </div>
-            </div>
+
+        <h2 class="font-bold text-3xl text-center">All Designs</h2>
+
+        <div class="flex flex-col items-stretch justify-start md:flex-row md:flex-wrap md:justify-center">
+          <Item v-for="item of $store.state.items.list" :key="item.title" :item="item" class="mt-8 md:mx-4" />
+        </div>
+
+        <div class="text-center">
+          <h2 class="font-bold text-3xl mt-16">Interested in more?</h2>
+          <div class="text-sm font-bold text-gray-500">Take a look at our stores!</div>
+        </div>
+
+        <div class="flex flex-col items-stretch md:items-center justify-start">
+          <div class="flex flex-col items-stretch justify-start">
+            <Store v-for="store of $store.state.stores.list" :key="store.id" :store="store" class="mt-8" />
           </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -51,11 +50,13 @@
 </template>
 
 <script>
+import Item from '@/components/Item'
+import Store from '@/components/Store'
+
 export default {
-  computed: {
-    inventory() {
-      return this.$store.state.inventory
-    },
+  components: {
+    Item,
+    Store,
   },
   methods: {
     scrollToClothes() {
