@@ -1,58 +1,24 @@
+import Design from './Schema'
+
+const classic = new Design('classic').since('2019-11-09').dark().variants(design => [
+  design.hoodie().amazon('https://www.amazon.de/dp/B07ZD89TK4'),
+  design.shirt().amazon('https://www.amazon.de/dp/B07Z9M7G55'),
+  design.shirt().light().amazon('https://www.amazon.de/dp/B07Z9NN6FV?customId=B07537SGL9&th=1'),
+  design.socks().teespring('https://teespring.com/dkd-classic?tsmac=store&tsmic=dkd&pid=655&cid=102829'),
+  design.pillow().teespring('https://teespring.com/dkd-classic?tsmac=store&tsmic=dkd&pid=650'),
+  design.sticker().teespring('https://teespring.com/dkd-classic?tsmac=store&tsmic=dkd&pid=794&cid=103544&sid=front'),
+  design.towel().teespring('https://teespring.com/dkd-classic?tsmac=store&tsmic=dkd&pid=651&cid=102726&sid=front'),
+])
+
+const no5 = new Design('no-5').since('2019-12-08').dark().variants(design => [
+  design.hoodie().amazon('https://www.amazon.de/dp/B082747X53'),
+  design.sweatshirt().amazon('https://www.amazon.de/dp/B082747X53'),
+  design.shirt().teespring('https://teespring.com/dkd-no-5?tsmac=store&tsmic=dkd&pid=389&cid=100029'),
+])
+
 export const state = () => ({
   list: [
-    {
-      type: 'Hoodie',
-      image: '/inventory/classic/hoodie.jpeg',
-      design: 'classic',
-      since: '2019-11-09',
-      store: 'amazon',
-      style: 'dark',
-      link: 'https://www.amazon.de/dp/B07ZD89TK4'
-    },
-    {
-      type: 'Tshirt',
-      image: '/inventory/classic/tshirt.jpeg',
-      design: 'classic',
-      since: '2019-11-09',
-      store: 'amazon',
-      style: 'dark',
-      link: 'https://www.amazon.de/dp/B07Z9M7G55'
-    },
-    {
-      type: 'Socks',
-      image: '/inventory/classic/socks.jpg',
-      design: 'classic',
-      since: '2019-11-09',
-      store: 'teespring',
-      style: 'dark',
-      link: 'https://teespring.com/dkd-classic?tsmac=store&tsmic=dkd&pid=655&cid=102829'
-    },
-    {
-      type: 'Pillow',
-      image: '/inventory/classic/pillow.jpg',
-      design: 'classic',
-      since: '2019-11-09',
-      store: 'teespring',
-      style: 'dark',
-      link: 'https://teespring.com/dkd-classic?tsmac=store&tsmic=dkd&pid=650'
-    },
-    {
-      type: 'Sticker',
-      image: '/inventory/classic/sticker.jpg',
-      design: 'classic',
-      since: '2019-11-09',
-      store: 'teespring',
-      style: 'light',
-      link: 'https://teespring.com/dkd-classic?tsmac=store&tsmic=dkd&pid=794&cid=103544&sid=front'
-    },
-    {
-      type: 'Towel',
-      image: '/inventory/classic/towel.jpg',
-      design: 'classic',
-      since: '2019-11-09',
-      store: 'teespring',
-      style: 'dark',
-      link: 'https://teespring.com/dkd-classic?tsmac=store&tsmic=dkd&pid=651&cid=102726&sid=front'
-    },
+    ...no5,
+    ...classic,
   ],
 })
