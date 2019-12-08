@@ -12,7 +12,7 @@ const classic = new Design('classic').since('2019-11-09').dark().variants(design
 
 const no5 = new Design('no-5').since('2019-12-08').dark().variants(design => [
   design.hoodie().amazon('https://www.amazon.de/dp/B082747X53'),
-  design.sweatshirt().amazon('https://www.amazon.de/dp/B082747X53'),
+  design.sweatshirt().amazon('https://www.amazon.de/dp/B0827YY3SW'),
   design.shirt().teespring('https://teespring.com/dkd-no-5?tsmac=store&tsmic=dkd&pid=389&cid=100029'),
 ])
 
