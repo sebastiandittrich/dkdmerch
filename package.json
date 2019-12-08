@@ -1,7 +1,7 @@
 {
   "name": "dkdmerch",
   "version": "0.6.0",
-  "description": "My brilliant Nuxt.js project",
+  "description": "Die offizielle DKD-Merch Seite!",
   "author": "Sebastian Dittrich",
   "private": true,
   "scripts": {
