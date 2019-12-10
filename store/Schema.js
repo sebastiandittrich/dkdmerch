@@ -12,6 +12,21 @@
 
 // classic.teespring().dark().towel('https://teespring.com/dkd-classic?tsmac=store&tsmic=dkd&pid=651&cid=102726&sid=front')
 
+const pricelist = {
+  amazon: {
+    hoodie: 28.65,
+    shirt: 13.50,
+    sweatshirt: 26.31,
+  },
+  teespring: {
+    shirt: 12.99,
+    socks: 13.98,
+    pillow: 18.98,
+    sticker: 4.98,
+    towel: 24.98,
+  }
+}
+
 export default class Design {
   constructor(design) {
     this.config = { design }
@@ -20,7 +35,8 @@ export default class Design {
   generate() {
     return {
       ...this.config,
-      image: `/inventory/${this.config.design}/${this.config.style}/${this.config.type}.jpg`
+      image: `/inventory/${this.config.design}/${this.config.style}/${this.config.type}.jpg`,
+      price: pricelist[this.config.store][this.config.type]
     }
   }
 

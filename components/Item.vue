@@ -20,11 +20,11 @@
     </div>
     <div class="flex flex-col items-stretch justify-start text-sm">
       <a v-if="item.store == 'amazon'" :href="item.link" class="bg-yellow-400 hover:bg-yellow-500 px-4 py-2 font-bold text-gray-800 text-center tracking-wide" target="_blank" ref="noopener">
-        Buy on Amazon
+        {{ item.price }}€ on Amazon
         <i class="feather icon-chevron-right"></i>
       </a>
       <a v-else-if="item.store == 'teespring'" :href="item.link" class="bg-pink-800 hover:bg-pink-900 px-4 py-2 font-bold text-gray-200 text-center tracking-wide" target="_blank" ref="noopener">
-        Buy on Teespring
+        {{ item.price }}€ on Teespring
         <i class="feather icon-chevron-right"></i>
       </a>
     </div>
