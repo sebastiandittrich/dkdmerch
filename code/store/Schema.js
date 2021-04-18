@@ -24,6 +24,8 @@ const pricelist = {
     pillow: 18.98,
     sticker: 4.98,
     towel: 24.98,
+    hoodie: 23.00,
+    sweatshirt: 22.00,
   }
 }
 

@@ -16,8 +16,15 @@ const no5 = new Design('no-5').since('2019-12-08').dark().variants(design => [
   design.shirt().teespring('https://teespring.com/dkd-no-5?tsmac=store&tsmic=dkd&pid=389&cid=100029'),
 ])
 
+const no3 = new Design('no-3').since('2019-12-16').dark().variants(design => [
+  design.hoodie().amazon(''),
+  design.sweatshirt().amazon(''),
+  design.shirt().teespring('https://teespring.com/de/dkd-no-3?pid=389'),
+])
+
 export const state = () => ({
   list: [
+    ...no3,
     ...no5,
     ...classic,
   ],
