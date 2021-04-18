@@ -18,7 +18,7 @@ body {
 }
 
 .link {
-  @apply font-bold text-gray-900 transition border-b-2 border-gray-500;
+  @apply font-bold text-gray-900 border-b-2 border-gray-500;
 }
 
 .link:hover {

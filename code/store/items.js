@@ -24,7 +24,7 @@ const no3 = new Design('no-3').since('2019-12-16').dark().variants(design => [
 
 export const state = () => ({
   list: [
-    ...no3,
+    // ...no3,
     ...no5,
     ...classic,
   ],
