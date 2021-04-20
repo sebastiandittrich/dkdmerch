@@ -43,10 +43,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - dkdmerch.ocean.dkdmerch.de
+        - dkdmerch.de
       secretName: letsencrypt-prod
   rules:
-    - host: dkdmerch.ocean.dkdmerch.de
+    - host: dkdmerch.de
       http:
         paths:
           - path: /
