@@ -1,0 +1,52 @@
+name: Deploy to Strato
+
+on:
+    push:
+        branches:
+          - main
+
+jobs:
+    deploy:
+        environment: production
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Build
+              run: |
+                  npm ci;
+                  npm run generate;
+            - name: Deploy
+              run: |
+                  # Setup SSH
+                  eval $(ssh-agent -s);
+                  echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add - > /dev/null;
+                  mkdir -p ~/.ssh;
+                  chmod 700 ~/.ssh;
+                  echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts;
+                  chmod 644 ~/.ssh/known_hosts;
+
+                  # Paths
+                  SERVER_APP_PATH="~/production"
+                  SERVER_DEPLOYMENTS_PATH="$SERVER_APP_PATH/deployments"
+                  SERVER_CURRENT_DEPLOYMENT_PATH="$SERVER_APP_PATH/current"
+                  NEW_DEPLOYMENT_NAME="${{ github.sha }}"
+                  ZIP_NAME="$NEW_DEPLOYMENT_NAME.tar"
+                  LOCAL_DEPLOYMENT_PATH="$(pwd)/../$NEW_DEPLOYMENT_NAME"
+
+                  # Copy built project to local deployment path
+                  rm -rf $LOCAL_DEPLOYMENT_PATH
+                  cp -r $(pwd)/dist $LOCAL_DEPLOYMENT_PATH
+                  cd $LOCAL_DEPLOYMENT_PATH/..
+
+                  # zip local deployment
+                  tar -cf $ZIP_NAME $NEW_DEPLOYMENT_NAME
+
+                  # copy zip file over ssh
+                  ssh ${{ secrets.SSH_STRING }} "mkdir -p $SERVER_DEPLOYMENTS_PATH"
+                  scp -r $ZIP_NAME ${{ secrets.SSH_STRING }}:$SERVER_DEPLOYMENTS_PATH
+
+                  # Unzip deployment
+                  ssh ${{ secrets.SSH_STRING }} "tar -xf $SERVER_DEPLOYMENTS_PATH/$ZIP_NAME -C $SERVER_DEPLOYMENTS_PATH"
+
+                  # Linking current deployment
+                  ssh ${{ secrets.SSH_STRING }} "ln -nfs $SERVER_DEPLOYMENTS_PATH/$NEW_DEPLOYMENT_NAME $SERVER_CURRENT_DEPLOYMENT_PATH"
