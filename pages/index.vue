@@ -42,7 +42,7 @@
   <div class="bg-gray-100 p-16 mt-32">
     <div class="container mx-auto text-center">
       <div>
-        Built by <a href="https://owner.todoninja.de" class="link">Sebastian Dittrich</a>
+        Built by <a href="https://dittrich.dev" class="link">Sebastian Dittrich</a>
       </div>
     </div>
   </div>
@@ -65,4 +65,3 @@ export default {
   }
 }
 </script>
-
